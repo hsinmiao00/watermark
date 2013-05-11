@@ -6,18 +6,19 @@ function [output] = wm_extract(view, f_input_l, f_input_r, d_input_l, d_input_r,
 	imW = inputWidth;
 	imH = inputHeight;
 
-	%original syn image
+	%==============original syn image=============
 	[status,resultStr]= system(VSRSStringOri{view});
 	oriYUV = loadYUV(VSRSName{view},imW,imH);
 	oriIm = rgb2ycbcr(oriYUV);
 	oriIm = oriIm(:,:,1);
-	
-
 	[status,resultStr]= system(VSRSString{view});
-	
+	%%=========================================
+
+	%%============embedded syn image===================
 	tmpYUV = loadYUV(VSRSName{view},imW,imH);
 	I2 = rgb2ycbcr(tmpYUV);
 	I2 = I2(:,:,1);
+	%%=================================================
 %	toc
 %	tic
 	[f_syn , d_syn ]= vl_sift(single(I2));

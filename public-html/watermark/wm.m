@@ -16,12 +16,14 @@ function [output] = wm(source, wm, alpha, siSize)
 	output = 0;
 
 	points = floor(siSize*1000/128);
+	
+	imSize = size(original_I_L);
 	%%=============================================
 	
+	%initial setting (ex: load image)
 	initialSource();
 
-	imSize = size(original_I_L);
-
+	%%======================ISS watermark setting
 	wmKey = sign(randn(1,patternLength));
 	watermarkSize = floor((imSize(1)/blockSize))*floor((imSize(2)/blockSize)) ;
 	
@@ -29,10 +31,7 @@ function [output] = wm(source, wm, alpha, siSize)
 	myWM = rgb2gray(myWM);
 	myWM = reshape(double(myWM),[],1);
 	W = sign(myWM-128);
-
-	%W = sign(randn(watermarkSize,1));
-
-	%result = zeros(length(deltaArr),maxDisparity+1);
+	%%==========================================
 
 	[ embed_I_L ] = ISSEmbed( original_I_L , W , alpha , 1.5 , blockSize , wmKey , watermarkSize );
 	original_I_L_ycbcr(:,:,1) = embed_I_L;
