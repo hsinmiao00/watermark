@@ -3,17 +3,11 @@
 
 
 	$tmp = 0;
-	//strength of watermark (alpha in ISS)
 	$tmp = $_GET['strength'];
 	echo $tmp.':';
-
-	//side information size
 	$tmp2 = $_GET['size'];
 	echo $tmp2.':';
-
-	//which watermark(bmpfile)
 	$tmp3 = $_GET['iwm'];
-
 //	echo $tmp3.':';
 	/*
 	$command = "matlab -nojvm -nodesktop -nodisplay -r \"out=test1(".$tmp.");fprintf(1,'%d',out);exit\"";
