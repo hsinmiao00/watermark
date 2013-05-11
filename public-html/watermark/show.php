@@ -15,8 +15,8 @@
 <!--<script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>-->
 <script>
 $(document).ready(function() {
-		var wmSelected = 0;
-		var iwmStr = 0;
+var wmSelected = 0;
+var iwmStr = 0;
 		$( "#button" ).button();
 		$( "#radioset" ).buttonset();
 
@@ -24,34 +24,34 @@ $(document).ready(function() {
 		$( "#amount" ).val(  $( "#slider" ).slider( "value" ) );
 
 		$( "#progressbar" ).progressbar({ value: 20 });
-		$( "#slider2" ).slider({value: 50,min: 5,max: 200,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
-		$( "#amount2" ).val(  $( "#slider2" ).slider( "value" ) );
+$( "#slider2" ).slider({value: 50,min: 5,max: 200,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
+$( "#amount2" ).val(  $( "#slider2" ).slider( "value" ) );
 
-		$(".iwm").click(function (){
+$(".iwm").click(function (){
 
-			iwmStr = this.alt.toString();
-			if(iwmStr=='wm2'){
-			$("#iwm2").css('border', "solid 2px");
-			$("#iwm3").css('border', "0px");
-			wmSelected = 1;
-			$('#msg').html(iwmStr);
-			}
-			else if(iwmStr=='wm3'){
-			$("#iwm3").css('border', "solid 2px");
-			$("#iwm2").css('border', "0px");
-			wmSelected = 1;
-			$('#msg').html(456);
-			}
-			});
+	iwmStr = this.alt.toString();
+	if(iwmStr=='wm2'){
+		$("#iwm2").css('border', "solid 2px");
+		$("#iwm3").css('border', "0px");
+		wmSelected = 1;
+		$('#msg').html(iwmStr);
+	}
+	else if(iwmStr=='wm3'){
+		$("#iwm3").css('border', "solid 2px");
+		$("#iwm2").css('border', "0px");
+		wmSelected = 1;
+		$('#msg').html(456);
+	}
+});
 
 
-		$("#button").click(function (){
-				if(iwmStr==0){
-				alert("Please choose a watermark image");
-				}
-				else{
-				$("#container").mask("Waiting...");
-				$.ajax({
+$("#button").click(function (){
+		if(iwmStr==0){
+			alert("Please choose a watermark image");
+		}
+		else{
+		$("#container").mask("Waiting...");
+		$.ajax({
 url: 'index.php',
 cache: false,
 dataType: 'html',
@@ -72,25 +72,17 @@ $('#msg').fadeIn();
 
 
 d = new Date();
-<?php	
-	for($i=1;$i<=8;$i++){
-		echo '$("#wm'.$i.'").attr(\'src\', \'wm'.$i.'.jpg?\'+d.getTime());';
-		echo '$("#im'.$i.'").attr(\'src\', \''.$i.'.jpg?\'+d.getTime());';
-		echo 'var tmpStr3 = tmpStr2['.($i-1).'].split(\',\')';
-				echo '$(\'#ber'.$i.'\').html( \'View: '.$i.'<br />\'+tmpStr3[0]+\'%\')' ;
-					echo '$(\'#msg'.$i.'\').fadeIn();';
-					}
-					?>
-					//$("#wm1").attr('src', 'wm1.jpg?'+d.getTime());
-					$("#container").unmask();
-					wmSelected = 0;
-					}
+$("#wm1").attr('src', 'wm1.jpg?'+d.getTime());$("#im1").attr('src', '1.jpg?'+d.getTime());$('#ber1').html( 'View: 1<br />'+tmpStr2[0]+'%' );$('#msg1').fadeIn();$("#wm2").attr('src', 'wm2.jpg?'+d.getTime());$("#im2").attr('src', '2.jpg?'+d.getTime());$('#ber2').html( 'View: 2<br />'+tmpStr2[1]+'%' );$('#msg2').fadeIn();$("#wm3").attr('src', 'wm3.jpg?'+d.getTime());$("#im3").attr('src', '3.jpg?'+d.getTime());$('#ber3').html( 'View: 3<br />'+tmpStr2[2]+'%' );$('#msg3').fadeIn();$("#wm4").attr('src', 'wm4.jpg?'+d.getTime());$("#im4").attr('src', '4.jpg?'+d.getTime());$('#ber4').html( 'View: 4<br />'+tmpStr2[3]+'%' );$('#msg4').fadeIn();$("#wm5").attr('src', 'wm5.jpg?'+d.getTime());$("#im5").attr('src', '5.jpg?'+d.getTime());$('#ber5').html( 'View: 5<br />'+tmpStr2[4]+'%' );$('#msg5').fadeIn();$("#wm6").attr('src', 'wm6.jpg?'+d.getTime());$("#im6").attr('src', '6.jpg?'+d.getTime());$('#ber6').html( 'View: 6<br />'+tmpStr2[5]+'%' );$('#msg6').fadeIn();$("#wm7").attr('src', 'wm7.jpg?'+d.getTime());$("#im7").attr('src', '7.jpg?'+d.getTime());$('#ber7').html( 'View: 7<br />'+tmpStr2[6]+'%' );$('#msg7').fadeIn();$("#wm8").attr('src', 'wm8.jpg?'+d.getTime());$("#im8").attr('src', '8.jpg?'+d.getTime());$('#ber8').html( 'View: 8<br />'+tmpStr2[7]+'%' );$('#msg8').fadeIn();
+	//$("#wm1").attr('src', 'wm1.jpg?'+d.getTime());
+	$("#container").unmask();
+		wmSelected = 0;
+	 }
 
-					});
+});
 
-				}
+}
 
-				});
+});
 
 
 });
@@ -210,7 +202,7 @@ background: #999;
 
 p.bjqs-caption{
 background: rgba(255,255,255,0.5);
-	    font-size: 16px;
+font-size: 16px;
 }
 
 
