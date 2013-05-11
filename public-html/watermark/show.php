@@ -26,6 +26,7 @@ $(document).ready(function() {
 		var wmSelected = 0;
 		var iwmStr = 0;
 		$( "#button" ).button();
+		$( "#radioset" ).buttonset();
 		$("#navigator").scrollable().navigator();
 		$('#banner-fade').bjqs({height: 544,width: 960,responsive  : true,automatic : false,showcontrols : true});
 		$( "#radioset" ).buttonset();
@@ -36,23 +37,38 @@ $(document).ready(function() {
 		$( "#progressbar" ).progressbar({ value: 20 });
 		$( "#slider2" ).slider({value: 50,min: 5,max: 200,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
 		$( "#amount2" ).val(  $( "#slider2" ).slider( "value" ) );
-
+		$("#radio1").click(function (){
+		<?php
+		for($i=1;$i<=8;$i++){
+			echo '$("#im'.$i.'").attr(\'src\', \'ori'.$i.'.jpg\');';
+		}
+		?>
+			
+		});
+		$("#radio2").click(function (){
+		<?php
+		for($i=1;$i<=8;$i++){
+			echo '$("#im'.$i.'").attr(\'src\', \''.$i.'.jpg\');';
+		}
+		?>
+			
+		});
 		$(".iwm").click(function (){
 
-			iwmStr = this.alt.toString();
-			if(iwmStr=='wm2'){
-			$("#iwm2").css('border', "solid 2px");
-			$("#iwm3").css('border', "0px");
-			wmSelected = 1;
-			$('#msg').html(iwmStr);
-			}
-			else if(iwmStr=='wm3'){
-			$("#iwm3").css('border', "solid 2px");
-			$("#iwm2").css('border', "0px");
-			wmSelected = 1;
-			$('#msg').html(456);
-			}
-			});
+				iwmStr = this.alt.toString();
+				if(iwmStr=='wm2'){
+				$("#iwm2").css('border', "solid 2px");
+				$("#iwm3").css('border', "0px");
+				wmSelected = 1;
+				$('#msg').html(iwmStr);
+				}
+				else if(iwmStr=='wm3'){
+				$("#iwm3").css('border', "solid 2px");
+				$("#iwm2").css('border', "0px");
+				wmSelected = 1;
+				$('#msg').html(456);
+				}
+				});
 
 
 		$("#button").click(function (){
@@ -87,24 +103,23 @@ d = new Date();
 	for($i=1;$i<=8;$i++){
 		echo '$("#wm'.$i.'").attr(\'src\', \'wm'.$i.'.jpg?\'+d.getTime());';
 		echo '$("#im'.$i.'").attr(\'src\', \''.$i.'.jpg?\'+d.getTime());';
-		echo '$("#im'.$i.'").attr(\'title\', \'test\');';
 		echo 'tmpStr3 = tmpStr2['.($i-1).'].split(\',\');';
-				echo '$(\'#ber'.$i.'\').html( \'View: '.$i.'<br />\'+tmpStr3[0]+\'%<br /> \'+tmpStr3[1]);' ;
+		echo '$(\'#ber'.$i.'\').html( \'View: '.$i.'<br />\'+tmpStr3[0]+\'%<br /> \'+tmpStr3[1]);' ;
 		echo '$("#wm'.$i.'").css(\'width\', wmWidth );';
-					echo '$(\'#msg'.$i.'\').fadeIn();';
-					}
-					?>
+		echo '$(\'#msg'.$i.'\').fadeIn();';
+	}
+?>
 
-					//$("#wm1").attr('src', 'wm1.jpg?'+d.getTime());
-					$("#container").unmask();
-					wmSelected = 0;
-					}
+	//$("#wm1").attr('src', 'wm1.jpg?'+d.getTime());
+	$("#container").unmask();
+wmSelected = 0;
+	 }
 
-					});
+});
 
-				}
+}
 
-				});
+});
 
 
 });
@@ -140,9 +155,16 @@ d = new Date();
 <h2 class="demoHeaders">Progressbar</h2>
 <div id="progressbar"></div>
 -->
-<h3 class="demoHeaders">Button</h3>
+<h3 class="demoHeaders">Extract and Embed</h3>
 <button id="button">Embed and Extract</button>
 
+<h3 class="demoHeaders">Image Type</h3>
+<form style="margin-top: 1em;">
+<div id="radioset">
+<input type="radio" id="radio1" name="radio"><label for="radio1">Original</label>
+<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Embedded</label>
+</div>
+</form>
 
 <div id="msg"> </div>
 
