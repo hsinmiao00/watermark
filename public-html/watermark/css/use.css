@@ -1,0 +1,146 @@
+body{
+font: 62.5% "Trebuchet MS", sans-serif;
+margin: 50px;
+}
+h1 {
+color: #000;
+       font-size: 35px;
+}
+
+h2 {
+color: #000;
+       font-size: 27px;
+       letter-spacing: 0px;
+       font-weight: normal;
+padding: 0 0 5px;
+margin: 0;
+}
+h3 {
+
+	font-size: 20px;
+}
+
+.demoHeaders {
+	margin-top: 2em;
+}
+#dialog-link {
+padding: .4em 1em .4em 20px;
+	 text-decoration: none;
+position: relative;
+}
+#dialog-link span.ui-icon {
+margin: 0 5px 0 0;
+position: absolute;
+left: .2em;
+top: 50%;
+     margin-top: -8px;
+}
+#icons {
+margin: 0;
+padding: 0;
+}
+#icons li {
+margin: 2px;
+position: relative;
+padding: 4px 0;
+cursor: pointer;
+float: left;
+       list-style: none;
+}
+#icons span.ui-icon {
+float: left;
+margin: 0 4px;
+}
+.fakewindowcontain .ui-widget-overlay {
+position: absolute;
+}
+
+
+
+.scrollable { position:relative; overflow:hidden; width: 200px; height: 102px;} 
+.scrollable .items { width: 20000em; position:absolute;}
+.scrollable .items div { float:left;} 
+.scrollable .items .item { overflow:hidden;}
+
+.navi { width:auto; height:20px;  margin:5px 0; padding-left: 35%;} 
+.navi a { width: 20px; cursor:pointer; height: 20px; float:left; margin:0 0 0 3px; background:url(webim/opencircle.png) no-repeat scroll top; display:block; font-size:1px;} 
+.navi a:hover, .navi a.active { background-position:left top; margin:0 0 0 3px;  background:url(webim/closedcircle.png) no-repeat scroll top}
+
+
+#banner-fade,
+#banner-slide{
+	margin-bottom: 60px;
+}
+
+ul.bjqs-controls.v-centered li a{
+display:block;
+padding:10px;
+background:#fff;
+color:#000;
+      text-decoration: none;
+}
+
+ul.bjqs-controls.v-centered li a:hover{
+background:#000;
+color:#fff;
+}
+
+ol.bjqs-markers li a{
+padding:5px 10px;
+background:#000;
+color:#fff;
+margin:5px;
+       text-decoration: none;
+}
+
+ol.bjqs-markers li.active-marker a,
+	ol.bjqs-markers li a:hover{
+background: #999;
+	}
+
+p.bjqs-caption{
+background: rgba(255,255,255,0.5);
+	    font-size: 16px;
+}
+
+
+.loadmask {
+	z-index: 100;
+position: absolute;
+top:0;
+left:0;
+     -moz-opacity: 0.5;
+opacity: .50;
+filter: alpha(opacity=50);
+	background-color: #CCC;
+width: 100%;
+height: 100%;
+zoom: 1;
+}
+.loadmask-msg {
+	z-index: 20001;
+position: absolute;
+top: 0;
+left: 0;
+border:1px solid #6593cf;
+background: #c3daf9;
+padding:2px;
+}
+.loadmask-msg div {
+padding:5px 10px 5px 25px;
+background: #fbfbfb url('../webim/loading.gif') no-repeat 5px 5px;
+	    line-height: 16px;
+border:1px solid #a3bad9;
+color:#222;
+font:normal 20px tahoma, arial, helvetica, sans-serif;
+cursor:wait;
+}
+.masked {
+overflow: hidden !important;
+}
+.masked-relative {
+position: relative !important;
+}
+.masked-hidden {
+visibility: hidden !important;
+}
