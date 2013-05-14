@@ -22,7 +22,7 @@
 
 //=========================WATERMARK EXECUTION============================
 	system('rm -f *.jpg');
-	$command = "matlab -nodesktop -nodisplay -r \"out = wm('dancer','".$tmp3.".bmp',".$tmp.",".$tmp2.");exit\"";
+	$command = "matlab -nodesktop -nodisplay -r \"out = wm('poznanstreet','".$tmp3.".bmp',".$tmp.",".$tmp2.");exit\"";
 	$output = exec($command,$output3,$status);
 	//system($command);
 	//print_r($output);

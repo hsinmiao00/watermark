@@ -76,7 +76,7 @@ function [output] = wm(source, wm, alpha, siSize)
 	matlabpool open local 8
 %ii=4;	
 	parfor (ii= 1:8)
-		output = wm_extract(ii, f_input_l, f_input_r, d_input_l, d_input_r, blockSize, wmKey, watermarkSize, W, 'dancer');
+		output = wm_extract(ii, f_input_l, f_input_r, d_input_l, d_input_r, blockSize, wmKey, watermarkSize, W, source);
 	end
 
 	matlabpool close

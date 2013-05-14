@@ -1,7 +1,7 @@
 if strcmp(source,'dancer')==1
 	initial_dancer();
-elseif strcmp(source,'hall')==1
-	output = 2;
+elseif strcmp(source,'poznanstreet')==1
+	initial_poznanstreet();
 
 elseif strcmp(source,'balloons')==1
 	output = 3;
