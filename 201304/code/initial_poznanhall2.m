@@ -1,7 +1,7 @@
 % input view = 5 & 7
 % virtual view = 0
 % modify parameter VirtualCameraName
-[status,resultStr]= system('ViewSynVC7.exe ../data/hall/config/VSRS/vsrs_poznanhall2_ori.cfg');
+[status,resultStr]= system('./ViewSyn ../data/hall/config/VSRS/vsrs_poznanhall2_ori.cfg');
 inputWidth = 1920;
 inputHeight = 1088;
 
@@ -9,7 +9,7 @@ oriImage = loadYUV('hall_syn_ori.yuv',1920,1088);
 oriImage = rgb2ycbcr(oriImage);
 oriImage = oriImage(:,:,1);
 
-%VSRS的cfg是寫死的, 所以需要4個cfg檔案, 裡面只有檔案io的路徑不同
+%VSRS??cfg?O?g????, ???H???n4??cfg????, ?????u??????io?????|???P
 vsrsCfgPath = '../data/hall/config/VSRS/vsrs_poznanhall2_matlab.cfg';
 vsrsCfg2Path = '../data/hall/config/VSRS/vsrs_poznanhall2_matlab2.cfg';
 vsrsCfgWMPath = '../data/hall/config/VSRS/vsrs_poznanhall2_matlab_WMGeneration.cfg';
@@ -32,7 +32,7 @@ original_D_R_ycbcr = rgb2ycbcr(original_D_R);
 original_D_R = original_D_R_ycbcr(:,:,1);
 
 
-%要改的: io路徑, baseviewcameranumbers, camara parameter, cfg
+%?n????: io???|, baseviewcameranumbers, camara parameter, cfg
 %camera parameters
 A_L = [ 1732.875727 ,   0.0 ,   943.231169   ;
     0.0             ,   1729.908923   ,   548.845040   ;
@@ -72,5 +72,6 @@ HTMString_I_R = strcat(' --InputFile_0=tmp_I_r.yuv --DepthInputFile_0=../data/ha
 %HTMString2_I_R = strcat(' --InputFile_0=embed_I_r.yuv --DepthInputFile_0=embed_I_r.yuv  --ReconFile_0=embed_I_recon_r.yuv --BaseViewCameraNumbers=7 --CameraParameterFile=../data/hall/config/HTM/cam_poznanhall2.cfg -c ../data/hall/config/HTM/HTM_cfg_poznanhall2.cfg');
 %HTMString2_D_L = strcat(' --InputFile_0=embed_D_l.yuv --DepthInputFile_0=embed_D_l.yuv  --ReconFile_0=embed_D_recon_l.yuv --BaseViewCameraNumbers=5 --CameraParameterFile=../data/hall/config/HTM/cam_poznanhall2.cfg -c ../data/hall/config/HTM/HTM_cfg_poznanhall2.cfg');
 %HTMString2_D_R = strcat(' --InputFile_0=embed_D_r.yuv --DepthInputFile_0=embed_D_r.yuv  --ReconFile_0=embed_D_recon_r.yuv --BaseViewCameraNumbers=7 --CameraParameterFile=../data/hall/config/HTM/cam_poznanhall2.cfg -c ../data/hall/config/HTM/HTM_cfg_poznanhall2.cfg');
-VSRSString = 'ViewSynVC7.exe vsrs_poznanhall2_tmp.cfg';
+VSRSString = './ViewSyn vsrs_poznanhall2_tmp.cfg';
+VSRSString2 = './ViewSyn vsrs_poznanhall2_tmp2.cfg';
 VSRSName = 'hall_syn_tmp.yuv';

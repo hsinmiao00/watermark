@@ -6,7 +6,7 @@ function [ output ] = SIFT_disparity( d_syn,d_input,f_syn,f_input )
 output = [];
 maxDisparity = 80;
 maxScore = 25000;
-verticalThreshold = 1.5;
+verticalThreshold = 3;
 
 for i = 1 : length(matches)
     synIndex = matches(1,i);

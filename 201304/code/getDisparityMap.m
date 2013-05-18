@@ -1,4 +1,4 @@
-imSize = size(oriImage);
+imSize = size(original_I_L);
 tmpDisparityMap = zeros(imSize(1),imSize(2));
 for i = 1 : imSize(1)
     for j = 1 : imSize(2)

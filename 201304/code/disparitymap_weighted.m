@@ -1,11 +1,11 @@
-function [ output ] = disparitymap_weighted( disparityTable , height , width )
+function [ output ] = disparitymap_weighted( disparityTable , height , width,numOfPoints )
 %DISPARITYMAP_NN Summary of this function goes here
 %   Detailed explanation goes here
 
 %height = 1088;
 %width = 1920;
 
-numOfPoints = 5;
+%numOfPoints = 5;
 
 output = zeros(height,width);
 for i = 1 : height

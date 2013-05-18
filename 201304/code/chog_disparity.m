@@ -1,14 +1,16 @@
-function [ output ] = chog_disparity( synImage, oriImage )
+function [ output ] = chog_disparity( synImage, oriImage, distance )
 %CHOG_DISPARITY Summary of this function goes here
 %   Detailed explanation goes here
 imwrite(synImage,'syn_image.pgm','pgm');
-system('./include/chog-release -m 3 -c syn_image.pgm feature.bin');
+system('./include/chog-release -m 11 -c syn_image.pgm feature.bin');
 system('./include/chog-release -d feature.bin feature_syn.ascii');
 dirLs = dir('feature.bin');
 dirLs.bytes
 
 imwrite(oriImage,'ori_image.pgm','pgm');
-system('./include/chog-release -m 3 -c ori_image.pgm feature.bin');
+tmpStr=strcat('./include/chog-release -n ',{' '},num2str(distance),' -m 11 -c ori_image.pgm feature.bin');
+%tmpStr{1,1}
+system(tmpStr{1,1});
 system('./include/chog-release -d feature.bin feature_ori.ascii');
 dirLs = dir('feature.bin');
 dirLs.bytes
@@ -24,7 +26,7 @@ fChogOri = chogOri(:,6:chogSize(2))';
 
 output = [];
 maxDisparity = 80;
-maxScore = 0.2;
+maxScore = 8;
 verticalThreshold = 3;
 
 for i = 1 : length(matches)

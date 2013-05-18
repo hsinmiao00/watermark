@@ -1,15 +1,15 @@
 % input view = 3 & 5
 % virtual view = 8
 % modify parameter VirtualCameraName
-[status,resultStr]= system('ViewSynVC7.exe ../data/dancer/config/VSRS/vsrs_dancer_ori.cfg');
+%[status,resultStr]= system('ViewSynVC7.exe ../data/dancer/config/VSRS/vsrs_dancer_ori.cfg');
 inputWidth = 1920;
 inputHeight = 1088;
 
-oriImage = loadYUV('dancer_syn_ori.yuv',1920,1088);
-oriImage = rgb2ycbcr(oriImage);
-oriImage = oriImage(:,:,1);
+%oriImage = loadYUV('dancer_syn_ori.yuv',1920,1088);
+%oriImage = rgb2ycbcr(oriImage);
+%oriImage = oriImage(:,:,1);
 
-%VSRS的cfg是寫死的, 所以需要4個cfg檔案, 裡面只有檔案io的路徑不同
+%VSRS??cfg?O?g????, ???H???n4??cfg????, ?????u??????io?????|???P
 vsrsCfgPath = '../data/dancer/config/VSRS/vsrs_dancer_matlab.cfg';
 vsrsCfg2Path = '../data/dancer/config/VSRS/vsrs_dancer_matlab2.cfg';
 vsrsCfgWMPath = '../data/dancer/config/VSRS/vsrs_dancer_matlab_WMGeneration.cfg';
@@ -59,7 +59,7 @@ T_syn = [-20 ; 0 ;  0];
 Z_near = 2289;
 Z_far = 213500;
 
-%要改的: io路徑, baseviewcameranumbers, camara parameter, cfg
+%?n????: io???|, baseviewcameranumbers, camara parameter, cfg
 % %initial compression
 HTMString_I_L = strcat(' --InputFile_0=tmp_I_l.yuv --DepthInputFile_0=../data/dancer/dancer_ori_D_l.yuv  --ReconFile_0=tmp_I_recon_l.yuv --BaseViewCameraNumbers=3 --CameraParameterFile=../data/dancer/config/HTM/cam_HTM_dancer.cfg -c ../data/dancer/config/HTM/HTM_cfg_dancer.cfg');
 HTMString_I_R = strcat(' --InputFile_0=tmp_I_r.yuv --DepthInputFile_0=../data/dancer/dancer_ori_D_r.yuv  --ReconFile_0=tmp_I_recon_r.yuv --BaseViewCameraNumbers=5 --CameraParameterFile=../data/dancer/config/HTM/cam_HTM_dancer.cfg -c ../data/dancer/config/HTM/HTM_cfg_dancer.cfg');
@@ -71,5 +71,5 @@ HTMString_I_R = strcat(' --InputFile_0=tmp_I_r.yuv --DepthInputFile_0=../data/da
 % HTMString2_I_R = strcat(' --InputFile_0=embed_I_r.yuv --DepthInputFile_0=embed_I_r.yuv  --ReconFile_0=embed_I_recon_r.yuv --BaseViewCameraNumbers=5 --CameraParameterFile=../data/dancer/config/HTM/cam_HTM_dancer.cfg -c ../data/dancer/config/HTM/HTM_cfg_dancer.cfg');
 % HTMString2_D_L = strcat(' --InputFile_0=embed_D_l.yuv --DepthInputFile_0=embed_D_l.yuv  --ReconFile_0=embed_D_recon_l.yuv --BaseViewCameraNumbers=3 --CameraParameterFile=../data/dancer/config/HTM/cam_HTM_dancer.cfg -c ../data/dancer/config/HTM/HTM_cfg_dancer.cfg');
 % HTMString2_D_R = strcat(' --InputFile_0=embed_D_r.yuv --DepthInputFile_0=embed_D_r.yuv  --ReconFile_0=embed_D_recon_r.yuv --BaseViewCameraNumbers=5 --CameraParameterFile=../data/dancer/config/HTM/cam_HTM_dancer.cfg -c ../data/dancer/config/HTM/HTM_cfg_dancer.cfg');
-VSRSString = 'ViewSynVC7.exe vsrs_dancer_tmp.cfg';
+VSRSString = './ViewSyn vsrs_dancer_tmp.cfg';
 VSRSName = 'dancer_syn_tmp.yuv';
