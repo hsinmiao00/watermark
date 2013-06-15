@@ -41,6 +41,7 @@ $(document).ready(function() {
 		$("#radio1").click(function (){
 		<?php
 		for($i=1;$i<=8;$i++){
+		//	echo 'jQuery.removeData("#im'.$i.'");';
 			echo '$("#im'.$i.'").attr(\'src\', \'ori'.$i.'.jpg\');';
 		}
 		?>
@@ -49,6 +50,7 @@ $(document).ready(function() {
 		$("#radio2").click(function (){
 		<?php
 		for($i=1;$i<=8;$i++){
+		//	echo 'jQuery.removeData("#im'.$i.'");';
 			echo '$("#im'.$i.'").attr(\'src\', \''.$i.'.jpg\');';
 		}
 		?>
@@ -150,7 +152,7 @@ wmSelected = 0;
 
 <div id="container" style=" width:90%; margin-left:5%; margin-right:5%">
 
-<h1>Watermark DEMO</h1>
+<h1>Digital Blind Watermarking for Depth-Image-Based Rendering 3D Images using Image Descriptors</h1>
 
 <div id="left" style="width:20%; float:left;">
 <h2>Input Parameters</h2>
