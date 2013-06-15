@@ -152,9 +152,8 @@ wmSelected = 0;
 
 <div id="container" style=" width:90%; margin-left:5%; margin-right:5%">
 
-<h1>Digital Blind Watermarking for Depth-Image-Based Rendering 3D Images using Image Descriptors</h1>
-
-<div id="left" style="width:20%; float:left;">
+<h1>Image Descriptors Based Digital Blind Watermarking for DIBR 3D Images</h1>
+<div id="left" style="width:25%; float:left;">
 <h2>Input Parameters</h2>
 <!-- Button -->
 
@@ -166,7 +165,7 @@ wmSelected = 0;
 
 
 <!-- Slider -->
-<h3 class="demoHeaders">Watermark Strength</h3>
+<h3 class="demoHeaders">Watermark Strength (&alpha;)</h3>
 <div id="slider"></div>
 <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold; font-size:18px"/>
 
@@ -179,8 +178,8 @@ wmSelected = 0;
 <h2 class="demoHeaders">Progressbar</h2>
 <div id="progressbar"></div>
 -->
-<h3 class="demoHeaders">Extract and Embed</h3>
-<button id="button">Embed and Extract</button>
+<h3 class="demoHeaders">Embed & Detect</h3>
+<button id="button">Embed & Detect</button>
 
 <h3 class="demoHeaders">Image Type</h3>
 <form style="margin-top: 1em;">
@@ -195,8 +194,8 @@ wmSelected = 0;
 
 </div><!-- en of left  -->
 
-<div id="right" style="width:75%; float:right; margin-left:5%;">
-<h2>Image and Extracted Watermark</h2>
+<div id="right" style="width:65%; float:right; margin-left:5%;">
+<h2>Image</h2>
 
 
 
@@ -219,14 +218,23 @@ for( $i=1;$i<=8;$i++ ){
 </div>
 <!-- End outer wrapper -->
 
+<h2>Watermark Image</h2>
 
 
+<div style="float:left;"> 
 <?php
-for( $i=1;$i<=8;$i++ ){
+for( $i=1;$i<=4;$i++ ){
 	echo '<div style="float:left;"><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
 }
-
 ?>
+</div>
+<div style="float:left;"> 
+<?php
+for( $i=5;$i<=8;$i++ ){
+	echo '<div style="float:left;"><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
+}
+?>
+</div>
 
 </div>
 </div> <!--  -right  end -->
