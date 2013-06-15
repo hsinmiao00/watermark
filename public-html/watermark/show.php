@@ -11,11 +11,12 @@
 <script src="js/jquery-1.9.1.js"></script>
 <script src="js/jquery-ui-1.10.3.custom.js"></script>
 <script src="js/jquery.tools2.js"></script>
-<script src="js/bjqs-1.3.min.js"></script>
+<script src="js/bjqs-1.3.min.js" data='bjqsData'></script>
 <script type='text/javascript' src='js/jquery.loadmask.js'></script>
 <!--<script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>-->
 <script>
 $(document).ready(function() {
+
 		var wmWidth = Math.floor($(window).width()*0.9*0.68/8);
 		wmWidth = wmWidth.toString()+'px';
 		<?php
@@ -26,35 +27,43 @@ $(document).ready(function() {
 		var wmSelected = 0;
 		var iwmStr = 0;
 		var coverStr = 0;
+		
+		setInterval(show,200);
+		
 		$( "#button" ).button();
 		$( "#radioset" ).buttonset();
 		$("#navigator").scrollable().navigator();
-		$('#banner-fade').bjqs({height: 544,width: 960,responsive  : true,automatic : false,showcontrols : true});
+		$('#banner-fade').bjqs({height: 544,width: 960,responsive  : true,automatic : false,showcontrols : true, nexttext : '&rarr;', prevtext : '&larr;' });
+		
+		
+		
+		
+		
 		$( "#radioset" ).buttonset();
 
 		$( "#slider" ).slider({ value: 8, min: 1, max: 15, step: 0.1, slide: function( event, ui ) { $( "#amount" ).val( ui.value );}});
 		$( "#amount" ).val(  $( "#slider" ).slider( "value" ) );
 
 		$( "#progressbar" ).progressbar({ value: 20 });
-		$( "#slider2" ).slider({value: 50,min: 5,max: 200,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
+		$( "#slider2" ).slider({value: 100,min: 5,max: 200,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
 		$( "#amount2" ).val(  $( "#slider2" ).slider( "value" ) );
 		$("#radio1").click(function (){
+		
+		d_radio1 = new Date();
 		<?php
 		for($i=1;$i<=8;$i++){
-		//	echo 'jQuery.removeData("#im'.$i.'");';
-			echo '$("#im'.$i.'").attr(\'src\', \'ori'.$i.'.jpg\');';
+			echo '$("#im'.$i.'").attr(\'src\', \'ori'.$i.'.jpg?\'+d_radio1.getTime());';
 		}
 		?>
 			
 		});
 		$("#radio2").click(function (){
+		d_radio2 = new Date();
 		<?php
 		for($i=1;$i<=8;$i++){
-		//	echo 'jQuery.removeData("#im'.$i.'");';
-			echo '$("#im'.$i.'").attr(\'src\', \''.$i.'.jpg\');';
+			echo '$("#im'.$i.'").attr(\'src\', \''.$i.'.jpg?\'+d_radio2.getTime());';
 		}
 		?>
-			
 		});
 		$(".iwm").click(function (){
 
@@ -144,6 +153,20 @@ wmSelected = 0;
 
 
 });
+var old = 1;
+function show(){
+	
+	//alert(parseInt($(".active-marker").children().html()));
+	
+	var oldStr = "#wm"+old.toString();
+	$(oldStr).css('border', "0px");
+
+
+	var showStr= "#wm"+parseInt($(".active-marker").children().html()).toString();
+	old = parseInt($(".active-marker").children().html());
+	$(showStr).css('border', "solid 2px");
+}
+
 
 </script>
 
@@ -218,8 +241,8 @@ for( $i=1;$i<=8;$i++ ){
 </div>
 <!-- End outer wrapper -->
 
-<h2>Watermark Image</h2>
 
+<h2>Watermark Image</h2>
 
 <div style="float:left;"> 
 <?php
