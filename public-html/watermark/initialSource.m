@@ -8,5 +8,7 @@ elseif strcmp(source,'balloons')==1
 	initial_balloons();
 elseif strcmp(source,'kendo')==1
 	initial_kendo();
+elseif strcmp(source,'newspaper')==1
+	initial_newspaper();
 
 end

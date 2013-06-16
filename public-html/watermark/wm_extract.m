@@ -46,6 +46,8 @@ function [output] = wm_extract(view, f_input_l, f_input_r, d_input_l, d_input_r,
 %	tic
 	normL = norm(reshape(disparityMap_l,1,[]).*reshape(disparityMap_l,1,[]),1);
 	normR = norm(reshape(disparityMap_r,1,[]).*reshape(disparityMap_r,1,[]),1);
+	normL = norm(reshape(disparityMap_l,1,[]),2);
+	normR = norm(reshape(disparityMap_r,1,[]),2);
 		        
 	if normL < normR
 		newImage = recoverDisparityMap( disparityMap_l , I2 );
