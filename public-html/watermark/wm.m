@@ -27,6 +27,9 @@ function [output] = wm(source, wm, alpha, siSize)
 	
 	myWM = imread(wm);
 	myWM = rgb2gray(myWM);
+	
+	myWM = imresize(myWM, [floor(imSize(1)/blockSize) floor(imSize(2)/blockSize)]);
+	
 	myWM = reshape(double(myWM),[],1);
 	W = sign(myWM-128);
 

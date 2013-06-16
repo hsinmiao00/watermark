@@ -7,6 +7,7 @@ function [output] = wm_extract(view, f_input_l, f_input_r, d_input_l, d_input_r,
 	imH = inputHeight;
 
 	%original syn image
+%	VSRSStringOri{view}
 	[status,resultStr]= system(VSRSStringOri{view});
 	oriYUV = loadYUV(VSRSName{view},imW,imH);
 	oriIm = rgb2ycbcr(oriYUV);
@@ -64,7 +65,12 @@ function [output] = wm_extract(view, f_input_l, f_input_r, d_input_l, d_input_r,
 	
 %	tic
 	recoverWM = reshape(extracted,floor(inputHeight/blockSize),floor(inputWidth/blockSize));
+	
+	
 	recoverWM = uint8((recoverWM + 1) * 127);
+	
+	%recoverWM = imresize(recoverWM,[34 60],'nearest');
+	
 	outputName = strcat(num2str(view),'.jpg');
 	outputOriName = strcat('ori',num2str(view),'.jpg');
 	wmOutName = strcat('wm',num2str(view),'.jpg');

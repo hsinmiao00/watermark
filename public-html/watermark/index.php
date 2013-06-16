@@ -20,6 +20,9 @@
 	else if(strcmp($tmp4,'cover3')==0){
 		$cover = 'poznanhall';
 	}
+	else if(strcmp($tmp4,'cover4')==0){
+		$cover = 'balloons';
+	}
 //	echo $tmp3.':';
 	/*
 	$command = "matlab -nojvm -nodesktop -nodisplay -r \"out=test1(".$tmp.");fprintf(1,'%d',out);exit\"";

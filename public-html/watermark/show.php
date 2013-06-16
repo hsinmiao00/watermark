@@ -299,14 +299,14 @@ for( $i=1;$i<=8;$i++ ){
 <div style="float:left;"> 
 <?php
 for( $i=1;$i<=4;$i++ ){
-	echo '<div style="float:left;"><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
+	echo '<div style="float:left; "><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
 }
 ?>
 </div>
 <div style="float:left;"> 
 <?php
 for( $i=5;$i<=8;$i++ ){
-	echo '<div style="float:left;"><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
+	echo '<div style="float:left; "><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
 }
 ?>
 </div>
