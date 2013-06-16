@@ -15,19 +15,19 @@ inputHeight = 1088;
 %vsrsCfgWMPath = '../data/hall/config/VSRS/vsrs_poznanhall2_matlab_WMGeneration.cfg';
 %load initial data
 
-original_I_L = loadYUV('../data/hall/hall_I_cam05.yuv',1920,1088);
+original_I_L = loadYUV('./data/hall/hall_I_cam05.yuv',1920,1088);
 original_I_L_ycbcr = rgb2ycbcr(original_I_L);
 original_I_L = original_I_L_ycbcr(:,:,1);
 
-original_I_R = loadYUV('../data/hall/hall_I_cam07.yuv',1920,1088);
+original_I_R = loadYUV('./data/hall/hall_I_cam07.yuv',1920,1088);
 original_I_R_ycbcr = rgb2ycbcr(original_I_R);
 original_I_R = original_I_R_ycbcr(:,:,1);
 
-original_D_L = loadYUV('../data/hall/hall_D_cam05.yuv',1920,1088);
+original_D_L = loadYUV('./data/hall/hall_D_cam05.yuv',1920,1088);
 original_D_L_ycbcr = rgb2ycbcr(original_D_L);
 original_D_L = original_D_L_ycbcr(:,:,1);
 
-original_D_R = loadYUV('../data/hall/hall_D_cam07.yuv',1920,1088);
+original_D_R = loadYUV('./data/hall/hall_D_cam07.yuv',1920,1088);
 original_D_R_ycbcr = rgb2ycbcr(original_D_R);
 original_D_R = original_D_R_ycbcr(:,:,1);
 
@@ -75,24 +75,24 @@ HTMString_I_R = strcat(' --InputFile_0=tmp_I_r.yuv --DepthInputFile_0=../data/ha
 
 
 VSRSString = cell(8,1);
-VSRSString{1} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v1.cfg';
-VSRSString{2} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v2.cfg';
-VSRSString{3} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v3.cfg';
-VSRSString{4} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v4.cfg';
+VSRSString{1} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v1.cfg';
+VSRSString{2} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v2.cfg';
+VSRSString{3} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v3.cfg';
+VSRSString{4} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v4.cfg';
 VSRSString{5} = 'cp -f tmp_I_recon_l.yuv hall_syn_v5.yuv';
-VSRSString{6} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v6.cfg';
+VSRSString{6} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v6.cfg';
 VSRSString{7} = 'cp -f tmp_I_recon_r.yuv hall_syn_v7.yuv';
-VSRSString{8} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v8.cfg';
+VSRSString{8} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v8.cfg';
 
 VSRSStringOri = cell(8,1);
-VSRSStringOri{1} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v1_ori.cfg';
-VSRSStringOri{2} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v2_ori.cfg';
-VSRSStringOri{3} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v3_ori.cfg';
-VSRSStringOri{4} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v4_ori.cfg';
+VSRSStringOri{1} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v1_ori.cfg';
+VSRSStringOri{2} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v2_ori.cfg';
+VSRSStringOri{3} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v3_ori.cfg';
+VSRSStringOri{4} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v4_ori.cfg';
 VSRSStringOri{5} = 'cp -f ./data/hall/hall_I_cam05.yuv hall_syn_v5.yuv';
-VSRSStringOri{6} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v6_ori.cfg';
+VSRSStringOri{6} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v6_ori.cfg';
 VSRSStringOri{7} = 'cp -f ./data/hall/hall_I_cam07.yuv hall_syn_v7.yuv';
-VSRSStringOri{8} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_hall_v8_ori.cfg';
+VSRSStringOri{8} = './code/ViewSyn ./data/hall/config/VSRS/vsrs_poznanhall2_v8_ori.cfg';
 
 VSRSName = cell(8,1);
 VSRSName{1} = 'hall_syn_v1.yuv';

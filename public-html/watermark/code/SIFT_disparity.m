@@ -4,7 +4,7 @@ function [ output ] = SIFT_disparity( d_syn,d_input,f_syn,f_input )
 
 [matches, scores] = vl_ubcmatch(d_syn, d_input) ;
 output = [];
-maxDisparity = 80;
+maxDisparity = 800;
 maxScore = 25000;
 verticalThreshold = 1.5;
 
