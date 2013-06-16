@@ -17,6 +17,9 @@
 	else if(strcmp($tmp4,'cover2')==0){
 		$cover = 'poznanstreet';
 	}
+	else if(strcmp($tmp4,'cover3')==0){
+		$cover = 'poznanhall';
+	}
 //	echo $tmp3.':';
 	/*
 	$command = "matlab -nojvm -nodesktop -nodisplay -r \"out=test1(".$tmp.");fprintf(1,'%d',out);exit\"";
