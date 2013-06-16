@@ -86,13 +86,54 @@ $(document).ready(function() {
 
 				coverStr = this.alt.toString();
 				if(coverStr=='cover1'){
-				$("#cover1").css('border', "solid 2px");
-				$("#cover2").css('border', "0px");
+					$("#cover1").css('border', "solid 2px");
+					$("#cover2").css('border', "solid 0px");
+					$("#cover3").css('border', "solid 0px");
+					$("#cover4").css('border', "solid 0px");
+					$("#cover5").css('border', "solid 0px");
+					$("#cover6").css('border', "solid 0px");
 				}
 				else if(coverStr=='cover2'){
-				$("#cover2").css('border', "solid 2px");
-				$("#cover1").css('border', "0px");
+					$("#cover1").css('border', "solid 0px");
+					$("#cover2").css('border', "solid 2px");
+					$("#cover3").css('border', "solid 0px");
+					$("#cover4").css('border', "solid 0px");
+					$("#cover5").css('border', "solid 0px");
+					$("#cover6").css('border', "solid 0px");	
 				}
+				else if(coverStr=='cover3'){
+					$("#cover1").css('border', "solid 0px");
+					$("#cover2").css('border', "solid 0px");
+					$("#cover3").css('border', "solid 2px");
+					$("#cover4").css('border', "solid 0px");
+					$("#cover5").css('border', "solid 0px");
+					$("#cover6").css('border', "solid 0px");	
+				}
+				else if(coverStr=='cover4'){
+					$("#cover1").css('border', "solid 0px");
+					$("#cover2").css('border', "solid 0px");
+					$("#cover3").css('border', "solid 0px");
+					$("#cover4").css('border', "solid 2px");
+					$("#cover5").css('border', "solid 0px");
+					$("#cover6").css('border', "solid 0px");	
+				}
+				else if(coverStr=='cover5'){
+					$("#cover1").css('border', "solid 0px");
+					$("#cover2").css('border', "solid 0px");
+					$("#cover3").css('border', "solid 0px");
+					$("#cover4").css('border', "solid 0px");
+					$("#cover5").css('border', "solid 2px");
+					$("#cover6").css('border', "solid 0px");	
+				}
+				else if(coverStr=='cover6'){
+					$("#cover1").css('border', "solid 0px");
+					$("#cover2").css('border', "solid 0px");
+					$("#cover3").css('border', "solid 0px");
+					$("#cover4").css('border', "solid 0px");
+					$("#cover5").css('border', "solid 0px");
+					$("#cover6").css('border', "solid 2px");	
+				}
+
 				$('#msg').html(coverStr);
 				});
 
@@ -181,7 +222,18 @@ function show(){
 <!-- Button -->
 
 <h3 class="demoHeaders">Source Image</h3>
-<div><img src="cover1.bmp" alt="cover1" class="cover" id="cover1" style="width:35%"><img src="cover2.bmp" alt="cover2" class="cover" id="cover2" style="margin-left: 20%;width:35%"></div>
+<div>
+<img src="cover1.bmp" alt="cover1" class="cover" id="cover1" style="width:35%">
+<img src="cover2.bmp" alt="cover2" class="cover" id="cover2" style="margin-left: 20%;width:35%;border:solid 2px;border-color:#ffffff;">
+</div>
+<div>
+<img src="cover3.bmp" alt="cover3" class="cover" id="cover3" style="width:35%; margin-bottom:3%;">
+<img src="cover4.bmp" alt="cover4" class="cover" id="cover4" style="margin-left: 20%;width:35%;border:solid 2px;border-color:#ffffff;">
+</div>
+<div>
+<img src="cover5.bmp" alt="cover5" class="cover" id="cover5" style="width:35%">
+<img src="cover6.bmp" alt="cover6" class="cover" id="cover6" style="margin-left: 20%;width:35%;border:solid 2px;border-color:#ffffff;">
+</div>
 
 <h3 class="demoHeaders">Watermark Image</h3>
 <div><img src="wm2.bmp" alt="wm2" class="iwm" id="iwm2" style="width:35%"><img src="wm3.bmp" alt="wm3" class="iwm" id="iwm3" style="margin-left: 20%;width:35%"></div>
