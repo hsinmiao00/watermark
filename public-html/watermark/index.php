@@ -23,6 +23,9 @@
 	else if(strcmp($tmp4,'cover4')==0){
 		$cover = 'balloons';
 	}
+	else if(strcmp($tmp4,'cover5')==0){
+		$cover = 'kendo';
+	}
 //	echo $tmp3.':';
 	/*
 	$command = "matlab -nojvm -nodesktop -nodisplay -r \"out=test1(".$tmp.");fprintf(1,'%d',out);exit\"";

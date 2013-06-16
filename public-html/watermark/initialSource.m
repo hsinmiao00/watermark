@@ -7,6 +7,6 @@ elseif strcmp(source,'poznanhall')==1
 elseif strcmp(source,'balloons')==1
 	initial_balloons();
 elseif strcmp(source,'kendo')==1
-	output = 4;
+	initial_kendo();
 
 end
