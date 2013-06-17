@@ -45,7 +45,7 @@ $(document).ready(function() {
 		$( "#amount" ).val(  $( "#slider" ).slider( "value" ) );
 
 		$( "#progressbar" ).progressbar({ value: 20 });
-		$( "#slider2" ).slider({value: 100,min: 5,max: 200,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
+		$( "#slider2" ).slider({value: 80,min: 5,max: 160,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
 		$( "#amount2" ).val(  $( "#slider2" ).slider( "value" ) );
 		$("#radio1").click(function (){
 		
@@ -168,7 +168,6 @@ var tmpStr3;
 $('#msg').fadeIn();
 
 
-
 d = new Date();
 <?php	
 	for($i=1;$i<=8;$i++){
@@ -199,11 +198,11 @@ function show(){
 	
 	//alert(parseInt($(".active-marker").children().html()));
 	
-	var oldStr = "#wm"+old.toString();
+	var oldStr = "#wmdiv"+old.toString();
 	$(oldStr).css('border', "0px");
 
 
-	var showStr= "#wm"+parseInt($(".active-marker").children().html()).toString();
+	var showStr= "#wmdiv"+parseInt($(".active-marker").children().html()).toString();
 	old = parseInt($(".active-marker").children().html());
 	$(showStr).css('border', "solid 2px");
 }
@@ -221,8 +220,9 @@ function show(){
 <h2>Input Parameters</h2>
 <!-- Button -->
 
-<h3 class="demoHeaders">Source Image</h3>
 <div>
+<h3 class="demoHeaders">Source Image</h3>
+<div >
 <img src="cover1.bmp" alt="cover1" class="cover" id="cover1" style="width:35%">
 <img src="cover2.bmp" alt="cover2" class="cover" id="cover2" style="margin-left: 20%;width:35%;border:solid 2px;border-color:#ffffff;">
 </div>
@@ -233,6 +233,7 @@ function show(){
 <div>
 <img src="cover5.bmp" alt="cover5" class="cover" id="cover5" style="width:35%">
 <img src="cover6.bmp" alt="cover6" class="cover" id="cover6" style="margin-left: 20%;width:35%;border:solid 2px;border-color:#ffffff;">
+</div>
 </div>
 
 <h3 class="demoHeaders">Watermark Image</h3>
@@ -270,7 +271,7 @@ function show(){
 </div><!-- en of left  -->
 
 <div id="right" style="width:65%; float:right; margin-left:5%;">
-<h2>Image</h2>
+<h2>Output Image</h2>
 
 
 
@@ -294,19 +295,19 @@ for( $i=1;$i<=8;$i++ ){
 <!-- End outer wrapper -->
 
 
-<h2>Watermark Image</h2>
+<h2>Detected Watermark Image</h2>
 
-<div style="float:left;"> 
+<div style="float:left; width=100%"> 
 <?php
 for( $i=1;$i<=4;$i++ ){
-	echo '<div style="float:left; "><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
+	echo '<div style="float:left; margin-left:20px" id="wmdiv'.$i.'"><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p align="center" id="ber'.$i.'" style="font-size:18px;">View'.$i.'</p></div>';
 }
 ?>
 </div>
 <div style="float:left;"> 
 <?php
 for( $i=5;$i<=8;$i++ ){
-	echo '<div style="float:left; "><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p id="ber'.$i.'" style="font-size:18px;">View:'.$i.'</p></div>';
+	echo '<div style="float:left; margin-left:20px" id="wmdiv'.$i.'"><img src="wm'.$i.'.jpg" id="wm'.$i.'" style="width:120px"/><br /><p align="center" id="ber'.$i.'" style="font-size:18px;">View'.$i.'</p></div>';
 }
 ?>
 </div>

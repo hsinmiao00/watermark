@@ -7,7 +7,8 @@ d_new = [];
 f_new = [];
 
 randPerm = randperm(length(d_ori));
-for i = 1 : distance
+distance_2 = min(length(d_ori),distance);
+for i = 1 : distance_2
     d_new = [d_new , d_ori(:,randPerm(i))];  
     f_new = [f_new , f_ori(:,randPerm(i))];
 end
