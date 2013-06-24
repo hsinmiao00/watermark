@@ -28,25 +28,27 @@ $(document).ready(function() {
 		var iwmStr = 0;
 		var coverStr = 0;
 		
+		//每200毫秒就抓一次現在停在哪一個view上面call funtion show() 讓watermark加框
 		setInterval(show,200);
 		
+		//initial for jQuery object
 		$( "#button" ).button();
 		$( "#radioset" ).buttonset();
 		$("#navigator").scrollable().navigator();
 		$('#banner-fade').bjqs({height: 544,width: 960,responsive  : true,automatic : false,showcontrols : true, nexttext : '&rarr;', prevtext : '&larr;' });
-		
-		
-		
-		
-		
 		$( "#radioset" ).buttonset();
 
+		//for watermark strength slidebar
 		$( "#slider" ).slider({ value: 8, min: 1, max: 15, step: 0.1, slide: function( event, ui ) { $( "#amount" ).val( ui.value );}});
 		$( "#amount" ).val(  $( "#slider" ).slider( "value" ) );
 
 		$( "#progressbar" ).progressbar({ value: 20 });
+		
+		//for side information size slidebar
 		$( "#slider2" ).slider({value: 80,min: 5,max: 160,step: 1,slide: function( event, ui ) {$( "#amount2" ).val( ui.value );}});
 		$( "#amount2" ).val(  $( "#slider2" ).slider( "value" ) );
+		
+		//切換original及embedded image
 		$("#radio1").click(function (){
 		
 		d_radio1 = new Date();
@@ -65,6 +67,10 @@ $(document).ready(function() {
 		}
 		?>
 		});
+		//==================================
+
+
+		//選擇input watermark image  被選到的加框
 		$(".iwm").click(function (){
 
 				iwmStr = this.alt.toString();
@@ -81,7 +87,10 @@ $(document).ready(function() {
 				$('#msg').html(456);
 				}
 				});
-		
+		//========================================
+
+
+		//選擇source cover image 選到的加框
 		$(".cover").click(function (){
 
 				coverStr = this.alt.toString();
@@ -136,8 +145,9 @@ $(document).ready(function() {
 
 				$('#msg').html(coverStr);
 				});
+		//==================================================
 
-
+		//embed & detect button
 		$("#button").click(function (){
 				if(iwmStr==0){
 				alert("Please choose a watermark image");
@@ -148,6 +158,7 @@ $(document).ready(function() {
 				}
 				else{
 				$("#container").mask("Waiting...");
+				//ajax
 				$.ajax({
 url: 'index.php',
 cache: false,
@@ -186,16 +197,18 @@ wmSelected = 0;
 	 }
 
 });
-
+//=========================ajax end=====================
 }
 
 });
-
+//================button end======================
 
 });
 var old = 1;
+
+
+//抓取現在在show哪一個view  並在watermark上加框
 function show(){
-	
 	//alert(parseInt($(".active-marker").children().html()));
 	
 	var oldStr = "#wmdiv"+old.toString();
@@ -218,8 +231,9 @@ function show(){
 <h1>Image Descriptors Based Digital Blind Watermarking for DIBR 3D Images</h1>
 <div id="left" style="width:25%; float:left;">
 <h2>Input Parameters</h2>
-<!-- Button -->
 
+
+<!-- cover image -->
 <div>
 <h3 class="demoHeaders">Source Image</h3>
 <div >
@@ -235,9 +249,12 @@ function show(){
 <img src="cover6.bmp" alt="cover6" class="cover" id="cover6" style="margin-left: 20%;width:35%;border:solid 2px;border-color:#ffffff;">
 </div>
 </div>
+<!-- cover image end-->
 
+<!-- watermark image -->
 <h3 class="demoHeaders">Watermark Image</h3>
 <div><img src="wm2.bmp" alt="wm2" class="iwm" id="iwm2" style="width:35%"><img src="wm3.bmp" alt="wm3" class="iwm" id="iwm3" style="margin-left: 20%;width:35%"></div>
+<!-- watermark image end-->
 
 
 <!-- Slider -->
@@ -248,12 +265,15 @@ function show(){
 <h3 class="demoHeaders">Side Information Size</h3>
 <div id="slider2"></div>
 <input type="text" id="amount2" style="border: 0; color: #f6931f; font-weight: bold; font-size:18px; width:35px;" /><b style="font-size:18px">kB</b>
+<!-- slider end-->
 
 
 <!-- Progressbar 
 <h2 class="demoHeaders">Progressbar</h2>
 <div id="progressbar"></div>
 -->
+
+<!-- button -->
 <h3 class="demoHeaders">Embed & Detect</h3>
 <button id="button">Embed & Detect</button>
 
@@ -264,21 +284,23 @@ function show(){
 <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Embedded</label>
 </div>
 </form>
+<!-- button end-->
 
+<!-- debug message-->
 <div id="msg"> </div>
 
 
-</div><!-- en of left  -->
+</div><!-- end of left column -->
+
+
 
 <div id="right" style="width:65%; float:right; margin-left:5%;">
 <h2>Output Image</h2>
 
-
-
-
 <div id="banner-fade">
 
 <!-- start Basic Jquery Slider -->
+<!-- google jquery bjqs for more information -->
 <ul class="bjqs">
 <?php
 $wmStrPre = "wm";
@@ -292,8 +314,6 @@ for( $i=1;$i<=8;$i++ ){
 <!-- end Basic jQuery Slider -->
 
 </div>
-<!-- End outer wrapper -->
-
 
 <h2>Detected Watermark Image</h2>
 
@@ -313,7 +333,8 @@ for( $i=5;$i<=8;$i++ ){
 </div>
 
 </div>
-</div> <!--  -right  end -->
+</div> 
+<!--  -right  end -->
 
 
 </div>
